@@ -1,0 +1,55 @@
+Daniel - 2331044 5PSIA
+Project: Prediksi Risiko Kesehatan Mental Menggunakan Fuzzy Logic – Mental Health in Tech Survey
+
+Proyek ini bertujuan untuk memprediksi kategori risiko stres dan kesehatan mental seseorang (Rendah, Sedang, Tinggi) berdasarkan faktor-faktor di lingkungan kerja, khususnya tingkat gangguan kerja dan ketersediaan opsi perawatan. Pendekatan Fuzzy Logic digunakan karena mampu menangani ketidakpastian dan sifat linguistik (subjektif) dari data survei manusia, di mana jawaban seperti 'Rarely' atau 'Sometimes' adalah ambigius.
+
+Langkah-Langkah Pengerjaan (Summary)
+1. Pembersihan Data: Konversi variabel linguistik (work_interfere, care_options) menjadi nilai numerik 0-3 dan 0-2.
+
+2. Fuzzifikasi: Definisi 3 set fuzzy (Low, Medium, High) untuk setiap variabel menggunakan fungsi trapmf.
+
+3. Inferensi: Pembuatan 9 Aturan Fuzzy (3×3) untuk mencakup semua kombinasi logika input.
+
+4. Defuzzifikasi: Menghitung skor numerik tunggal Risk_Level_Score (0-10) menggunakan metode Centroid.
+
+5. Insight 1: Pembuatan kolom Kategori_Stres (Rendah/Sedang/Tinggi) dari skor defuzzifikasi.
+
+6. Insight 2: Pembuatan kolom Perlu_Intervensi berdasarkan kondisi Kategori_Stres TINGGI atau family_history='Yes'.
+
+Logika (Contoh Aturan Fuzzy Inti)
+Aturan-aturan ini menjadi dasar pengambilan keputusan model:
+
+- Paling Aman: IF work_interfere LOW AND care_options HIGH, THEN risk_level LOW.
+
+- Paling Berisiko: IF work_interfere HIGH AND care_options LOW, THEN risk_level HIGH.
+
+- Netral/Waspada: IF work_interfere MEDIUM AND care_options MEDIUM, THEN risk_level MEDIUM.
+
+Hasil Output yang Dihasilkan
+File Kode: Nama_Anda.ipynb (File utama).
+
+File Data Output: fuzzy_mental_health_results.csv (Mengandung kolom insight baru).
+
+Kolom Insight Baru:
+
+Kategori_Stres (Klasifikasi akhir)
+
+Perlu_Intervensi (Rekomendasi tindakan)
+
+Visualisasi:
+
+3 Plot Fungsi Keanggotaan (mf_....png)
+
+1 Histogram Distribusi Hasil Akhir (histogram_kategori_stres.png)
+
+Tools & Library
+
+Python 3.11+
+NumPy
+Pandas
+Matplotlib
+Seaborn
+Scikit-Fuzzy
+
+Kesimpulan
+Pendekatan Fuzzy Logic berhasil digunakan untuk memprediksi kategori risiko stres dan kesehatan mental di lingkungan kerja. Model ini secara fleksibel memetakan variabel linguistik menjadi skor risiko yang terukur. Hasil klasifikasi pada dataset sederhana menunjukkan bagaimana tingkat gangguan kerja yang tinggi, terutama jika dikombinasikan dengan kurangnya opsi perawatan, secara otomatis menghasilkan kategori risiko yang tinggi. Sistem ini dapat berfungsi sebagai alat screening awal bagi perusahaan untuk mengidentifikasi karyawan yang perlu intervensi.
