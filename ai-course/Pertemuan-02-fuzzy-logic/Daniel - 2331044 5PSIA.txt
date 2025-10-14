@@ -53,3 +53,5 @@ Scikit-Fuzzy
 
 Kesimpulan
 Pendekatan Fuzzy Logic berhasil digunakan untuk memprediksi kategori risiko stres dan kesehatan mental di lingkungan kerja. Model ini secara fleksibel memetakan variabel linguistik menjadi skor risiko yang terukur. Hasil klasifikasi pada dataset sederhana menunjukkan bagaimana tingkat gangguan kerja yang tinggi, terutama jika dikombinasikan dengan kurangnya opsi perawatan, secara otomatis menghasilkan kategori risiko yang tinggi. Sistem ini dapat berfungsi sebagai alat screening awal bagi perusahaan untuk mengidentifikasi karyawan yang perlu intervensi.
+
+Link Repo : https://github.com/danielhong1602-beep/Uib-Ai-2331044-Daniel
